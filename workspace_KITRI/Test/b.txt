@@ -1,0 +1,48 @@
+1: package chap18.java_20181105;
+2: 
+3: import java.io.File;
+4: import java.io.FileNotFoundException;
+5: import java.io.FileReader;
+6: import java.io.FileWriter;
+7: import java.io.IOException;
+8: import java.util.Scanner;
+9: 
+10: public class FileCopy {
+11: 	
+12: 	public static void main(String[] args) throws IOException {
+13: 		//명령행 매개변수 2개 입력 : a.txt b.txt
+14: 		// a.txt파일을 b.txt파일로 복사하면서 라인번호 왼편 추가
+15: 		// b.txt 파일 열어보면  a.txt 파일과 같은 내용 저장
+16: 		// ===> "파일 복사 완료되었습니다"	
+17: 		
+18: 		if(args.length>=2) {
+19: 			File filea = new File(args[0]);
+20: 			File fileb = new File(args[1]);
+21: 			try {
+22: 				FileReader fr = new FileReader(filea);
+23: 				FileWriter fw = new FileWriter(fileb);
+24: 				
+25: 				
+26: 				int cnt = 0;
+27: 				Scanner sc = new Scanner(fr);
+28: 				
+29: 				while(sc.hasNextLine()) {
+30: 					String line = ++cnt+": "+sc.nextLine();
+31: 									System.out.println(line);
+32: 					fw.write(line+"\r\n");
+33: 				}
+34: 				
+35: 				
+36: 				System.out.println("파일복사 완료되었습니다.");
+37: 				fr.close();
+38: 				fw.close();//버퍼 - 파일최종저장
+39: 				
+40: 			} catch (FileNotFoundException e) {
+41: 				// TODO Auto-generated catch block
+42: 				e.printStackTrace();
+43: 			}
+44: 		}//if end
+45: 		
+46: 	}
+47: 
+48: }

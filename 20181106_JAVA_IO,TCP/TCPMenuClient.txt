@@ -1,0 +1,53 @@
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+
+public class TCPMenuClient {
+public static void main(String[] args)
+throws IOException {
+//1. 시작:접속 서버의 ip,port  부여하고 접속 시도
+		Socket s = new Socket("127.0.0.1", 50001);
+		System.out.println("클라이언트 접속 요청");
+//2. "hello 서버" 문자열 전송=서버로 출력
+		//2-1. 서버출력객체 생성
+		OutputStream os = s.getOutputStream();
+		//2-2. 서버출력문자열 생성
+		
+		/*클라이언트 프로그램(TCPMenuClient.java):
+		키보드 입력 : 로그인 / 회원가입 / 게시물작성
+		 서버 출력
+		 */
+		/* 서버 프로그램(TCPMenuServer.java):
+		 hr 아이디 로그인완료 
+		 java 아이디 가입완료
+		 제목 내용 작성자 필수
+		 클라이언트로 출력
+		 */
+		String toServer = "hello 서버";
+		//2-3. String 바이트배열 생성
+		byte b[] = toServer.getBytes();
+		//2-4. 서버출력객체 바이트배열 저장
+		os.write(b);
+		System.out.println
+		("클라이언트가 출력(서버로 전송)");
+
+//3. 서버로부터 입력
+		//2-1.소켓입력객체 생성
+		InputStream is = s.getInputStream();
+		//2-2. 입력받은 데이터 저장 바이트배열 생성
+		byte b2 [] = new byte[100];
+		//2-3.입력받아서 b 배열 저장,. cnt 입력갯수
+		int cnt = is.read(b2);
+		//2-4. byte 배열 b - String 변환
+		String input = new String(b2, 0, cnt); 
+		System.out.println
+		("서버가 출력(클라이언트에서 입력) = " + input);		
+//4. 서버가 접속 요청 클라이언트와 해제
+		s.close();
+		System.out.println("클라이언트 접속 해제");
+}
+}
+
+

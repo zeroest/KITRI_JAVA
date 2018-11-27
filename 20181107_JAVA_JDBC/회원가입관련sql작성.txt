@@ -1,0 +1,46 @@
+이메일제목:이름
+첨부파일이름.txt파일명
+1-5 sql작성
+
+bluejeansh@hanmail.net
+
+1.아래와 같이 member 테이블을 정의하세요.
+
+
+userid 문자열 30바이트 중복불가/null불가
+password 문자열 10바이트
+name 문자열 30바이트 null불가
+address 문자열 100바이트
+gender 성별 문자열 1바이트 남 여 중 하나만 가능
+indate 가입날짜 날짜 기본 오늘날짜(default속성)
+phone 연락처 문자열 30바이트 중복불가
+email 이메일 문자열 30바이트
+ 
+2. 아래와 같은 값으로 회원가입시에 
+member 테이블에 가입정보를 저장하는 
+sql을 작성하세요.
+
+userid test
+password 1234
+name 홍길동
+address 서울시 구로구 구로동
+성별 남
+가입날짜 값 없음
+연락처 010-2345-6789
+이메일 값 없음
+
+3. 아래와 같은 값으로 회원정보를 수정할 때 member 테이블에 수정 내용을 반영하는 sql을 작성하세요.
+userid test
+name 박길동
+성별 여
+이메일 park@kitri.com
+
+4. 아래와 같은 조건을 가진 회원을 
+member 테이블에서 조회하는 sql을 작성하세요.
+조건:
+서울지역에 주소를 두거나 kitri 도메인 이메일을 
+가진 회원
+
+5. member 테이블에 100명 이상의 회원가입정보가 
+있다고 가정하고 member 테이블에서 가장 최근 가입한 
+회원 10명을 조회하는 sql을 작성하세요.

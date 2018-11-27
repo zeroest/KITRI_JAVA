@@ -1,0 +1,48 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringComparator",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "chap11.java_20181031.StringComparator",
+            "args": "",
+            "projectName": "Test"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - OverridingTest",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "chap11.java_20181031.OverridingTest",
+            "args": "",
+            "projectName": "Test"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringTest",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "java_20181031.StringTest",
+            "args": "",
+            "projectName": "chap11"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClassTest",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "java_20181031.ClassTest",
+            "args": "",
+            "projectName": "chap11"
+        }
+    ]
+}

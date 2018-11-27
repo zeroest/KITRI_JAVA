@@ -1,0 +1,108 @@
+public class Server {
+public static void main(String[] args) {
+LoginClient c1 = new LoginClient("java", "java");
+LoginClient c2 = new LoginClient("java", "1234");
+RegisterClient c3 = new RegisterClient(new Date());
+BoardClient c4 = new BoardClient();
+
+c1.start();
+c2.start();
+c3.start();
+c4.start();
+}
+}
+//1.멀티스레드클래스 정의
+//2.생성자 정의/ 필드변수 정의
+class LoginClient{
+	/*main 전달 id=java, pw=java 
+	 * 로그인아이디xxxx를 입력받습니다
+	 * 로그인암호를 확인합니다
+	 * pw=java이면 로그인암호 맞습니다
+	 * 아니면 로그인암호 올바르지 않습니다
+	 * */
+} 
+class RegisterClient{
+	/*main 전달 Date 객체 
+	 * xxx년도 xx월 xx일에 회원가입요청합니다
+	 * 회원가입요청 처리중입니다
+	 * 3초 일시 중지
+     * 회원가입요청 처리완료입니다
+	 * */
+}
+class BoardClient{
+	/*5번 반복 : 0.5초마다 게시물 x번작성합니다 */
+	
+}
+
+==============================================================
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Server {
+public static void main(String[] args) {
+LoginClient c1 = new LoginClient("java", "java");
+LoginClient c2 = new LoginClient("java", "1234");
+RegisterClient c3 = new RegisterClient(new Date());
+BoardClient c4 = new BoardClient();
+
+c1.start();
+c2.start();
+c3.start();
+c4.start();
+}
+}
+//1.멀티스레드클래스 정의
+//2.생성자 정의/ 필드변수 정의
+class LoginClient extends Thread{
+	String id, pw;
+	LoginClient(String id, String pw){
+		this.id = id;
+		this.pw = pw;
+	}
+	public void run() {
+		System.out.println
+		("로그인아이디 " + id + " 를 입력받습니다");
+		System.out.println
+		("로그인암호를 확인합니다");	
+		if(id.equals("java") && pw.equals("java")) {
+			System.out.println("로그인암호 맞습니다");
+		}
+		else {
+			System.out.println("로그인암호 올바르지 않습니다");
+		}
+	}
+}
+class RegisterClient extends Thread{
+	String registerdate;
+	public RegisterClient(Date d) {
+		SimpleDateFormat sd = 
+		new SimpleDateFormat("yyyy년도 MM월 dd일");
+		registerdate = sd.format(d);
+	}
+	public void run() {
+		System.out.println
+		(registerdate +"에 회원가입요청합니다.");
+		System.out.println("회원가입요청 처리중입니다");
+		try {
+			sleep((int)(Math.random()*3000));
+		}catch(InterruptedException e) {
+			System.out.println("오류발생");
+		}
+		System.out.println("회원가입요청 처리완료입니다");
+	}
+}
+class BoardClient extends Thread{
+	@Override
+	public void run() {
+		for(int i = 1; i<=5; i++) {
+			try {
+				sleep((int)(Math.random()*3000));
+			}catch(InterruptedException e) {
+				System.out.println("오류발생");
+			}
+			System.out.println
+			("게시물 " + i +" 번작성합니다");
+		}
+	}
+}
+

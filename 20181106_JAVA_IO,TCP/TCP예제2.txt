@@ -1,0 +1,26 @@
+1.CartClient.java:클라이언트컴퓨터
+
+1>키보드 입력(최대 5번: 중단 stop  입력시)
+100 삼성마우스 1000 3
+또는
+stop
+2>CartServer로 출력
+3>CartServer로부터 입력 :
+ 삼성마우스 3개 장바구니 저장 완료 
+
+2.CartServer.java:서버컴퓨터
+1>클라이언트로부터 1줄 입력
+2> Cart객체 생성=배열, ....
+   클라이언트로 출력 : 삼성마우스 3개 장바구니 저장 완료
+3> Cart객체 5개 초과시 클라이언트 입력 중단
+4> 총가격 계산 : 누적 price * balance
+5> 지불할 총가격 = xxx 원 출력
+
+3.Cart.java :서버컴퓨터
+class Cart{
+ int cartcode;
+ String title;
+ int price;
+ int balance;
+생성자/setter/getter/toString
+}

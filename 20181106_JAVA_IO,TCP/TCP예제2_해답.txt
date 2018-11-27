@@ -1,0 +1,120 @@
+public class Cart {
+	int code;
+	String title;
+	int price;
+	int balance;
+	
+	public Cart(int code, String title, int price, int balance) {
+		super();
+		this.code = code;
+		this.title = title;
+		this.price = price;
+		this.balance = balance;
+	}
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getBalance() {
+		return balance;
+	}
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+	@Override
+	public String toString() {
+		return title + " " 
+	    + balance + " 개 장바구니 저장 완료";
+	}
+	
+}
+
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class CartClient {
+public static void main(String[] args)
+throws IOException {
+	Socket s = new Socket("localhost", 60000);
+	PrintWriter pw = new PrintWriter(s.getOutputStream());
+	Scanner is = new Scanner(s.getInputStream());
+	
+	Scanner keyboard = new Scanner(System.in);
+	System.out.println("클라이언트 : 키보드입력 시작");
+	int cnt = 0;
+	while(true) {
+		cnt++;
+		String input = keyboard.nextLine();
+		if(cnt > 5 || input.equals("stop")) break;
+		pw.println(input);
+		pw.flush();
+		System.out.println(is.nextLine());
+	}
+	is.close();
+	pw.close();
+	keyboard.close();
+	s.close();
+}
+}
+
+
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class CartServer {
+public static void main(String[] args)
+throws IOException{
+	ServerSocket ss = new ServerSocket(60000);
+	System.out.println("===클라이언트 대기중===");
+	while(true) {
+		Socket s = ss.accept();
+		PrintWriter pw = new PrintWriter(s.getOutputStream());
+		Scanner is = new Scanner(s.getInputStream());
+		
+		List<Cart> cartlist = new ArrayList<Cart>(5);
+		while(is.hasNextLine()) {
+			String client = is.nextLine();
+			String[] sp = client.split(" ");
+			Cart cart = new Cart
+			(Integer.parseInt(sp[0]), sp[1], 
+					Integer.parseInt(sp[2]), 
+					Integer.parseInt(sp[3]));
+			cartlist.add(cart);
+			pw.println(cart);
+			pw.flush();
+		}
+		//System.out.println(cartlist.size());
+		int totalPrice = 0;
+		for(Cart c : cartlist) {
+			totalPrice += c.getPrice()*c.getBalance();
+		}
+		System.out.println("총가격=" + totalPrice);
+		s.close();
+	}
+}
+}

@@ -1,0 +1,55 @@
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class TCPMenuServer {
+public static void main(String[] args)
+throws IOException {
+//0. 시작:port설정:접속 서비스
+	ServerSocket ss = new ServerSocket(50001);
+	System.out.println("서버가 50001 포트에서 대기중");
+//1. 접속 모니터링 , 감지시 수락
+// 네트워크 양끝점 논리적 개념	
+	while(true) {
+	Socket s = ss.accept();
+	InetSocketAddress clientip = 
+	(InetSocketAddress)s.getRemoteSocketAddress();
+	System.out.println
+	(clientip.getHostString() + " 클라이언트 접속 허락");
+//2. 클라이언트로부터 문자열 입력
+	//2-1.소켓입력객체 생성
+	InputStream is = s.getInputStream();
+	//2-2. 입력받은 데이터 저장 바이트배열 생성
+	byte b [] = new byte[100];
+	//2-3.입력받아서 b 배열 저장,. cnt 입력갯수
+	int cnt = is.read(b);
+	//2-4. byte 배열 b - String 변환
+	String input = new String(b, 0, cnt); 
+	System.out.println
+	("서버 입력(클라이언트에서 출력) = " + input);
+
+//3. 클라이언트에게 전송 내용 확인=서버 출력
+			//2-1. 클라이언트로출력객체 생성
+			OutputStream os = s.getOutputStream();
+			//2-3. String 바이트배열 생성
+			input = input+"(내용확인)";
+			byte b2[] = input.getBytes();
+			//2-4. 서버출력객체 바이트배열 저장
+			os.write(b2);
+			System.out.println
+			("서버가 출력(클라이언트로 전송)");
+			
+//	8. 서버가 접속 요청 클라이언트와 해제
+	s.close();
+	System.out.println("클라이언트 접속 해제");
+	}
+//	ss.close();
+//	System.out.println("서버가 50001 포트에서 종료");
+
+
+}
+}

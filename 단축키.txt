@@ -1,0 +1,43 @@
+자동 옵티마이징 ctrl + shift + o
+
+ Alt + 화살표 방향키로 Line 이동
+
+자동완성 기능은 ctrl + spacebar
+
+자동정렬을 하고 싶을 때는?   ctrl+shift+f
+
+주석 달기가 너무 귀찮아요.   ctrl+shift+/  && ctrl+shift+\
+
+알트쉬프트 z 반복문
+
+컨트롤 f11 run
+
+전체적으로 변수의 이름을 바꾸고 싶을 경우 변수이름에 커서를 두고 [shift] + [alt] + [r]
+
+한줄 삭제하는 단축키 [ctrl] + [d]
+
+ctrl + o 메소드나 필드로 이동
+
+ctrl + w 문서 닫기
+
+Alt + Shift + Z : Surround With 메뉴 - try / catch 문이나 for , do , while 등을 해당 블록에 감싸주는 메뉴가 나타난다.
+
+
+Ctrl + Shift + L : 모든 단축키의 내용을 표시해준다.
+
+Ctrl + Shift + O : import 문을 자동 생성 - 전체 소스 구문에서 import 안된 클래스의 import 문을 생성해 준다.
+
+http://egloos.zum.com/littletrue/v/3987863 
+
+
+
+
+
+
+
+
+[이클립스 설치경로]\configuration\.settings\org.eclipse.ui.ide.prefs 파일을 연다.
+SHOW_WORKSPACE_SELECTION_DIALOG=false <= true 로 변경한다.
+
+
+

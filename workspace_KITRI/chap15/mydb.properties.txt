@@ -1,0 +1,4 @@
+dbname=oracle xe
+version=11g
+account=hr
+password=hr

@@ -1,0 +1,36 @@
+package chap15;
+
+import java.util.Map;
+
+class Student{
+	private int id;
+	private String name;
+	private int kor, eng, mat, sum, avg;
+	//생성자
+	//toString
+	//hashCode
+	//equals
+	//+setter/getter추가메소드
+}
+public class StudentMapTest {
+public static void main(String[] args) {
+	Student s1 = new Student(1000, "송혜교", 88, 67, 99);
+	Student s2 = new Student(2000, "전지현", 100, 66, 99);
+	Student s3 = new Student(3000, "김태리", 89, 67, 82);
+	Student s4 = new Student(3000, "이자바", 56, 90, 82);
+	//키 Student객체id값, 값 Student객체로 정의 수정
+	Map map = new HashMap();
+	//set/get 메소드 호출 수정
+	map.put(s1.id, s1);
+	map.put(s2.id, s2);
+	map.put(s3.id, s3);
+	map.put(s4.id, s4);
+	//map객체들 kor, eng, mat 더하여 sum , avg 계산
+	//출력
+	
+	//sum 많은 순서대로 석차 구하자
+	// 1등 : id : name : sum 
+	// 2등 :
+	// 3등 : 
+}
+}

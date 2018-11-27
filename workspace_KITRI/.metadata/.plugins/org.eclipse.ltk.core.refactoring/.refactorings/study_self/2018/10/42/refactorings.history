@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;interface_abstract.Abst_Exam.java&apos; to &apos;Inter_Exam.java&apos;&#x0D;&#x0A;- Original project: &apos;study_self&apos;&#x0D;&#x0A;- Original element: &apos;interface_abstract.Abst_Exam.java&apos;&#x0D;&#x0A;- Renamed element: &apos;interface_abstract.Inter_Exam.java&apos;" description="Rename compilation unit &apos;Abst_Exam.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;interface_abstract{Abst_Exam.java" name="Inter_Exam.java" references="false" stamp="1539920434122" version="1.0"/>
+</session>
